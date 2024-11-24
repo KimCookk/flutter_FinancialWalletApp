@@ -1,8 +1,10 @@
+import 'package:financialwalletapp/widgets/currency_card.dart';
 import 'package:financialwalletapp/widgets/eclipse_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -12,81 +14,143 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xFF181818),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 60,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Hey, Selena',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 26,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      Text(
-                        'Welcome back',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
-                          fontSize: 15,
+        backgroundColor: const Color(0xFF181818),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 60,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Text(
+                          'Hey, Selena',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w700),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Total Balance',
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 0.8),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w200,
+                        Text(
+                          'Welcome back',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Text(
-                    '\$5 194 392',
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1.0),
-                      fontSize: 36,
-                      fontWeight: FontWeight.w800,
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Total Balance',
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.8),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      EclipseButton(
-                        text: 'Transfer',
-                        backgroundColor: Color(0xFFF2B33A),
-                        textColor: Color(0xFF181818),
+                    Text(
+                      '\$5 194 392',
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1.0),
+                        fontSize: 36,
+                        fontWeight: FontWeight.w800,
                       ),
-                      EclipseButton(
-                        text: 'Request',
-                        backgroundColor: Color(0xFF1F2123),
-                        textColor: Colors.white,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        EclipseButton(
+                          text: 'Transfer',
+                          backgroundColor: Color(0xFFF2B33A),
+                          textColor: Color(0xFF181818),
+                        ),
+                        EclipseButton(
+                          text: 'Request',
+                          backgroundColor: Color(0xFF1F2123),
+                          textColor: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 70,
+                ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Text(
+                          'Wallets',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 35,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          'View All',
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 17,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const CurrencyCard(
+                      unit: 'Euro',
+                      value: '6 428',
+                      code: 'EUR',
+                      icon: Icons.euro_sharp,
+                    ),
+                    const CurrencyCard(
+                      unit: 'Yenhwa',
+                      value: '6 428',
+                      code: 'YEN',
+                      icon: Icons.currency_yen,
+                      isInvert: true,
+                      offsetY: -20,
+                    ),
+                    const CurrencyCard(
+                      unit: 'Bitcoin',
+                      value: '6 428',
+                      code: 'BTC',
+                      icon: Icons.currency_bitcoin,
+                      offsetY: -40,
+                    ),
+                    const CurrencyCard(
+                      unit: 'Rupee',
+                      value: '6 428',
+                      code: 'INR',
+                      icon: Icons.currency_rupee_sharp,
+                      isInvert: true,
+                      offsetY: -60,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
